@@ -16,11 +16,11 @@ module.exports.loginSchema = celebrate({
   }),
 });
 
-module.exports.getUserSchema = celebrate({
-  params: Joi.object().keys({
-    id: Joi.string().required().hex().length(24),
-  }),
-});
+// module.exports.getUserSchema = celebrate({
+//   params: Joi.object().keys({
+//     id: Joi.string().required().hex().length(24),
+//   }),
+// });
 
 module.exports.updateUserSchema = celebrate({
   body: Joi.object().keys({
