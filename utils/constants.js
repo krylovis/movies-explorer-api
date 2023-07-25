@@ -37,3 +37,4 @@ module.exports.WRONG_LINK_FORMAT = 'Неправильный формат ссы
 module.exports.WRONG_EMAIL_OR_PASSWORD = 'Неправильные почта или пароль';
 
 module.exports.MOVIE_NONEXISTENT = 'Передан несуществующий ID фильма';
+module.exports.USER_ALREADY_EXISTS = 'Пользователь уже существует';

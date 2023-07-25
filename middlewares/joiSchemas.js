@@ -16,12 +16,6 @@ module.exports.loginSchema = celebrate({
   }),
 });
 
-// module.exports.getUserSchema = celebrate({
-//   params: Joi.object().keys({
-//     id: Joi.string().required().hex().length(24),
-//   }),
-// });
-
 module.exports.updateUserSchema = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
@@ -34,11 +28,11 @@ module.exports.createMovieSchema = celebrate({
   body: Joi.object().keys({
     country: Joi.string().required(),
     director: Joi.string().required(),
-    duration: Joi.string().required(),
+    duration: Joi.number().required(),
     year: Joi.date(),
     description: Joi.string().required(),
     image: Joi.string().required().regex(/^(http|https):\/\/[^ "]+$/),
-    trailerLink: Joi.string().required().regex(/^(http|https):\/\/[^ "]+$/),
+    trailer: Joi.string().required().regex(/^(http|https):\/\/[^ "]+$/),
     thumbnail: Joi.string().required().regex(/^(http|https):\/\/[^ "]+$/),
     movieId: Joi.number().required(),
     nameRU: Joi.string().required().pattern(/[а-я\\ё\d\W|_]/i),

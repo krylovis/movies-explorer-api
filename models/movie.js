@@ -33,7 +33,7 @@ const movieSchema = new mongoose.Schema({
       message: WRONG_LINK_FORMAT,
     },
   },
-  trailerLink: {
+  trailer: {
     type: String,
     required: true,
     validate: {

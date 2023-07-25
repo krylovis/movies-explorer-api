@@ -19,14 +19,9 @@ module.exports.getMovies = (req, res, next) => {
 };
 
 module.exports.createMovie = (req, res, next) => {
-  // const {
-  // country, director, duration, year, description, image, trailerLink, thumbnail, movieId, nameRU, nameEN,
-  // } = req.body;
   const { id } = req.user;
 
   Movies.create({ ...req.body, owner: id })
-    // .populate('owner')
-    // .then((movie) => movie.populate('owner'))
     .then((movie) => res.status(HTTP_STATUS_CREATED).send(movie))
     .catch(next);
 };
