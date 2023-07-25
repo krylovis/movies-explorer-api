@@ -18,7 +18,7 @@ const movieSchema = new mongoose.Schema({
     required: true,
   },
   year: {
-    type: Number,
+    type: String,
     required: true,
   },
   description: {
@@ -33,7 +33,7 @@ const movieSchema = new mongoose.Schema({
       message: WRONG_LINK_FORMAT,
     },
   },
-  trailer: {
+  trailerLink: {
     type: String,
     required: true,
     validate: {
