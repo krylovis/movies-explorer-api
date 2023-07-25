@@ -10,7 +10,7 @@ const {
   MONGO_URL = 'mongodb://localhost:27017',
 } = process.env;
 
-mongoose.connect(`${MONGO_URL}/mestodb`);
+mongoose.connect(`${MONGO_URL}/bitfilmsdb`);
 
 app.use(express.json());
 app.use(routes);
