@@ -6,6 +6,7 @@ const { requestLogger, errorLogger } = require('../middlewares/logger');
 const { corsSettings } = require('../middlewares/corsSettings');
 const authRoutes = require('./authRoutes');
 const usersRoutes = require('./usersRoutes');
+const movieRoutes = require('./movieRoutes');
 
 router.use(requestLogger);
 
@@ -14,6 +15,7 @@ router.use(cookieParser());
 
 router.use('/', authRoutes);
 router.use('/users', usersRoutes);
+router.use('/movies', movieRoutes);
 
 router.use(errorLogger);
 router.use(errors());

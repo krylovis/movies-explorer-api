@@ -39,7 +39,7 @@ module.exports.deleteMovie = (req, res, next) => {
         return next(new ForbiddenError(NO_RIGHTS_TO_DELETE));
       }
       return Movies.findByIdAndRemove(req.params.id)
-        .then((card) => res.status(HTTP_STATUS_OK).send(card));
+        .then((movie) => res.status(HTTP_STATUS_OK).send(movie));
     })
     .catch(next);
 };
