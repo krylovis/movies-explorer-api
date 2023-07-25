@@ -8,6 +8,9 @@ const authRoutes = require('./authRoutes');
 const usersRoutes = require('./usersRoutes');
 const movieRoutes = require('./movieRoutes');
 
+const { PAGE_NOT_FOUND } = require('../utils/constants');
+const NotFoundError = require('../custom-errors/NotFoundError');
+
 router.use(requestLogger);
 
 router.use(corsSettings);
@@ -19,5 +22,6 @@ router.use('/movies', movieRoutes);
 
 router.use(errorLogger);
 router.use(errors());
+router.use('*', (req, res, next) => next(new NotFoundError(PAGE_NOT_FOUND)));
 
 module.exports = router;
