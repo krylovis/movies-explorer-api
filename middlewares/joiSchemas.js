@@ -35,14 +35,14 @@ module.exports.createMovieSchema = celebrate({
     country: Joi.string().required(),
     director: Joi.string().required(),
     duration: Joi.string().required(),
-    year: Joi.date().format('YYYY'),
+    year: Joi.date(),
     description: Joi.string().required(),
     image: Joi.string().required().regex(/^(http|https):\/\/[^ "]+$/),
     trailerLink: Joi.string().required().regex(/^(http|https):\/\/[^ "]+$/),
     thumbnail: Joi.string().required().regex(/^(http|https):\/\/[^ "]+$/),
     movieId: Joi.number().required(),
-    nameRU: Joi.string().required().pattern(/[а-я\\ё\d\W|_]/gi),
-    nameEN: Joi.string().required().pattern(/[^а-я\\ё]/gi),
+    nameRU: Joi.string().required().pattern(/[а-я\\ё\d\W|_]/i),
+    nameEN: Joi.string().required().pattern(/[^а-я\\ё]/i),
   }),
 });
 
