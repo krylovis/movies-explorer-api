@@ -35,3 +35,5 @@ module.exports.DEFAULT_ERROR = 'Ошибка по умолчанию';
 module.exports.WRONG_EMAIL_FORMAT = 'Неправильный формат почты';
 module.exports.WRONG_LINK_FORMAT = 'Неправильный формат ссылки';
 module.exports.WRONG_EMAIL_OR_PASSWORD = 'Неправильные почта или пароль';
+
+module.exports.MOVIE_NONEXISTENT = 'Передан несуществующий ID фильма';
