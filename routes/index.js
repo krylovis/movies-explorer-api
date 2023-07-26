@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
+const helmet = require('helmet');
 
 const { requestLogger, errorLogger } = require('../middlewares/logger');
 const { corsSettings } = require('../middlewares/corsSettings');
@@ -13,6 +14,7 @@ const NotFoundError = require('../custom-errors/NotFoundError');
 
 router.use(requestLogger);
 
+router.use(helmet());
 router.use(corsSettings);
 router.use(cookieParser());
 
