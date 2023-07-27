@@ -1,6 +1,7 @@
 const User = require('../models/user');
 
-const { HTTP_STATUS_OK } = require('../utils/constants');
+const { HTTP_STATUS_OK, EMAIL_ALREADY_EXISTS } = require('../utils/constants');
+const ConflictError = require('../custom-errors/ConflictError');
 
 module.exports.getUser = (req, res, next) => {
   User.findById(req.user.id)
@@ -10,7 +11,20 @@ module.exports.getUser = (req, res, next) => {
 
 module.exports.updateUser = (req, res, next) => {
   const { name, email } = req.body;
-  User.findByIdAndUpdate(req.user.id, { name, email }, { new: true, runValidators: true })
-    .then((user) => res.status(HTTP_STATUS_OK).send(user))
-    .catch(next);
+
+  return User.findOne({ email })
+    .then((user) => {
+      const isUser = user && user?._id.toString() !== req.user.id;
+      if (isUser) {
+        return next(new ConflictError(EMAIL_ALREADY_EXISTS));
+      }
+
+      return User.findByIdAndUpdate(
+        req.user.id,
+        { name, email },
+        { new: true, runValidators: true },
+      )
+        .then((foundUser) => res.status(HTTP_STATUS_OK).send(foundUser))
+        .catch(next);
+    });
 };
