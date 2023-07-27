@@ -21,6 +21,11 @@ router.use(helmet());
 router.use(corsSettings);
 router.use(cookieParser());
 
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 router.use('/', authRoutes);
 router.use('/users', usersRoutes);
 router.use('/movies', movieRoutes);
