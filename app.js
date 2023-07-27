@@ -5,7 +5,11 @@ const routes = require('./routes');
 const errorHandler = require('./middlewares/errorHandler');
 
 const app = express();
-const { PORT, MONGO_URL, BD_NAME } = process.env;
+const {
+  PORT = 3000,
+  MONGO_URL = 'mongodb://localhost:27017',
+  BD_NAME = 'bitfilmsdb',
+} = process.env;
 
 mongoose.connect(`${MONGO_URL}/${BD_NAME}`);
 
