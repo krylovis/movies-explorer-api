@@ -1,8 +1,8 @@
 const allowedCors = [
-  // 'http:// .xyz',
-  // 'https:// .xyz',
-  // 'http://api. .xyz',
-  // 'https://api. .xyz',
+  'http://movies.krylovis.nomoreparties.sbs',
+  'https://movies.krylovis.nomoreparties.sbs',
+  'http://api.movies.krylovis.nomoreparties.sbs',
+  'https://api.movies.krylovis.nomoreparties.sbs',
   'http://localhost:3000',
   'http://localhost:3001',
 ];
