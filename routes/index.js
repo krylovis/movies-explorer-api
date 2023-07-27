@@ -26,6 +26,7 @@ router.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+
 router.use('/', authRoutes);
 router.use('/users', usersRoutes);
 router.use('/movies', movieRoutes);
