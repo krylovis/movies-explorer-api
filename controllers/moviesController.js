@@ -22,6 +22,7 @@ module.exports.createMovie = (req, res, next) => {
   const { id } = req.user;
 
   Movies.create({ ...req.body, owner: id })
+    .then((movie) => movie.populate('owner'))
     .then((movie) => res.status(HTTP_STATUS_CREATED).send(movie))
     .catch(next);
 };
