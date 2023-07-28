@@ -3,15 +3,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
 const errorHandler = require('./middlewares/errorHandler');
+const { MONGOOSE_FULL_URL } = require('./utils/mongodb');
 
 const app = express();
-const {
-  PORT = 3000,
-  MONGO_URL = 'mongodb://localhost:27017',
-  BD_NAME = 'bitfilmsdb',
-} = process.env;
+const { PORT = 3000 } = process.env;
 
-mongoose.connect(`${MONGO_URL}/${BD_NAME}`);
+mongoose.connect(MONGOOSE_FULL_URL);
 
 app.use(express.json());
 app.use(routes);
