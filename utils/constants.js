@@ -39,3 +39,4 @@ module.exports.WRONG_EMAIL_OR_PASSWORD = 'Неправильные почта и
 module.exports.MOVIE_NONEXISTENT = 'Передан несуществующий ID фильма';
 module.exports.USER_ALREADY_EXISTS = 'Пользователь уже существует';
 module.exports.EMAIL_ALREADY_EXISTS = 'Пользователь с таким email уже существует';
+module.exports.INVALID_USER_UPDATE = 'Переданы некорректные данные при обновлении профиля';
