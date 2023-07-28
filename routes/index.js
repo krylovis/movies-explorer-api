@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const { requestLogger, errorLogger } = require('../middlewares/logger');
 const { corsSettings } = require('../middlewares/corsSettings');
 const { limiter } = require('../utils/limiter');
+const { auth } = require('../middlewares/auth');
 
 const authRoutes = require('./authRoutes');
 const usersRoutes = require('./usersRoutes');
@@ -22,6 +23,8 @@ router.use(corsSettings);
 router.use(cookieParser());
 
 router.use('/', authRoutes);
+
+router.use(auth);
 router.use('/users', usersRoutes);
 router.use('/movies', movieRoutes);
 
