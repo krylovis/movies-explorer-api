@@ -8,5 +8,5 @@ API для аутентификации пользователей и сохра
 ## Ссылки на проект
 IP <158.160.34.34>
 
-# http://api.movies.krylovis.nomoreparties.sbs,
-# https://api.movies.krylovis.nomoreparties.sbs,
+# http://api.movies.krylovis.nomoreparties.sbs
+# https://api.movies.krylovis.nomoreparties.sbs
