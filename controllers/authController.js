@@ -25,7 +25,13 @@ module.exports.createUser = (req, res, next) => {
 
   return bcrypt.hash(password, 10)
     .then((hash) => User.create({ name, email, password: hash }))
-    .then((user) => res.status(HTTP_STATUS_CREATED).send(getUserData(user)))
+    .then((user) => {
+      const token = generateToken(user._id);
+      res.cookie('jwt', token, {
+        httpOnly: true, sameSite: true,
+      });
+      res.status(HTTP_STATUS_CREATED).send(getUserData(user));
+    })
     .catch((err) => {
       if (err.code === 11000) return next(new ConflictError(USER_ALREADY_EXISTS));
       return next(err);

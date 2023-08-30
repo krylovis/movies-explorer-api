@@ -5,6 +5,7 @@ const allowedCors = [
   'https://api.movies.krylovis.nomoreparties.sbs',
   'http://localhost:3000',
   'http://localhost:3001',
+  'http://localhost:3002',
 ];
 
 const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
