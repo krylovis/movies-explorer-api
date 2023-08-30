@@ -31,6 +31,7 @@ module.exports.updateUser = (req, res, next) => {
       )
         .then((foundUser) => res.status(HTTP_STATUS_OK).send(foundUser))
         .catch((err) => {
+          if (err.code === 11000) return next(new ConflictError(EMAIL_ALREADY_EXISTS));
           if (err.name === 'ValidationError') return next(new BadRequestError(INVALID_USER_UPDATE));
           return next(err);
         });
